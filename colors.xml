@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary palette -->
+    <color name="colorPrimary">#1565C0</color>
+    <color name="colorPrimaryDark">#0D47A1</color>
+    <color name="colorAccent">#42A5F5</color>
+
+    <!-- Backgrounds -->
+    <color name="colorBackground">#F5F5F5</color>
+    <color name="colorSearchBackground">#FFFFFF</color>
+    <color name="colorItemBackground">#FFFFFF</color>
+    <color name="colorItemBackgroundPressed">#E3F2FD</color>
+
+    <!-- Text -->
+    <color name="colorTextPrimary">#212121</color>
+    <color name="colorTextSecondary">#757575</color>
+
+    <!-- System badge -->
+    <color name="colorSystemBadge">#78909C</color>
+
+    <!-- Divider -->
+    <color name="colorDivider">#E0E0E0</color>
+</resources>

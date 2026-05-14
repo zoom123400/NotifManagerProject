@@ -1,0 +1,92 @@
+// app/build.gradle
+// Per-App Notification Manager
+// Min SDK: 14 (Android 4.0)  |  Target/Compile SDK: 34 (Android 14)
+
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.perappnotificationmanager'
+
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.perappnotificationmanager"
+
+        // API 14 = Android 4.0 Ice Cream Sandwich — broadest compatibility
+        minSdk 14
+
+        // Target latest stable Android
+        targetSdk 34
+
+        versionCode 1
+        versionName "1.0"
+
+        // Ensure the vector drawable support library back-ports VectorDrawable
+        // to API 14+ via AppCompat.
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    // -------------------------------------------------------------------------
+    // ABI Splits — produce separate APKs for 32-bit and 64-bit ARM devices.
+    // This keeps each APK small, which matters for users on low-storage devices.
+    // -------------------------------------------------------------------------
+    splits {
+        abi {
+            enable true
+            reset()
+            include "armeabi-v7a",   // 32-bit ARM (most pre-2015 devices)
+                    "arm64-v8a"      // 64-bit ARM (modern devices)
+            universalApk true        // Also produce a fat universal APK
+        }
+    }
+
+    // -------------------------------------------------------------------------
+    // Build types
+    // -------------------------------------------------------------------------
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+
+    // -------------------------------------------------------------------------
+    // Java compatibility — use Java 8 for lambdas/streams but keep
+    // .class output at Java 7 level so older Dalvik VMs can load it.
+    // -------------------------------------------------------------------------
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // Use AppCompat for resource merging
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    // AppCompat — provides backward-compatible Action Bar, Toolbar, and theming
+    // down to API 14.  Version 1.6.x is the last to support minSdk < 19 on some
+    // configurations; 1.7.x requires minSdk 19+. Pin to 1.6.1 for API 14 support.
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+
+    // RecyclerView — provides RecyclerView.Adapter + ViewHolder. Works on API 14+.
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+
+    // Core-KTX is NOT used (Java-only project), but Core provides
+    // ContextCompat, ActivityCompat etc. required for runtime permissions.
+    implementation 'androidx.core:core:1.12.0'
+
+    // Material Design components — only pulled in for the CardView used in the
+    // search background; rest of UI uses plain AppCompat widgets.
+    // material:1.11 still supports API 14.
+    implementation 'com.google.android.material:material:1.11.0'
+}

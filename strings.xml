@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notification Manager</string>
+
+    <!-- Search -->
+    <string name="search_hint">Search apps…</string>
+
+    <!-- Menu -->
+    <string name="show_system_apps">Show System Apps</string>
+    <string name="hide_system_apps">Hide System Apps</string>
+
+    <!-- List states -->
+    <string name="no_apps_found">No apps found.\nTry a different search term.</string>
+    <string name="loading_apps">Loading apps…</string>
+
+    <!-- Badges / Labels -->
+    <string name="system_badge">SYSTEM</string>
+
+    <!-- Accessibility -->
+    <string name="app_icon_description">App icon</string>
+    <string name="toggle_notifications_description">Toggle notifications</string>
+
+    <!-- Toasts / Messages -->
+    <string name="opening_settings_for">Opening notification settings for %1$s</string>
+    <string name="error_open_settings">Could not open system settings.</string>
+    <string name="permission_denied_notifications">Notification permission denied. Some features may be limited.</string>
+</resources>

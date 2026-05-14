@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ic_search.xml
+    Simple search magnifier vector icon.
+    Place this in res/drawable/ — AppCompat's VectorDrawableCompat handles
+    rendering on API 14+ when app:srcCompat is used (or via AppCompatImageView).
+
+    For EditText's android:drawableLeft, this requires
+    AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
+    in Application.onCreate() on API < 21. Alternatively, use a PNG in
+    res/drawable-mdpi / hdpi / xhdpi / xxhdpi for broadest compat.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="@color/colorTextSecondary">
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/colorTextSecondary"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M11,11m-7,0a7,7 0,1 1,14 0a7,7 0,1 1,-14 0" />
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/colorTextSecondary"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M16.5,16.5 L22,22" />
+</vector>

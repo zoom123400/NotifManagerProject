@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_main.xml
+    Root layout for MainActivity.
+
+    Structure:
+      LinearLayout (vertical)
+        └─ Toolbar          (AppCompat — works on API 14+)
+        └─ EditText         (Search bar)
+        └─ FrameLayout      (Holds RecyclerView + ProgressBar + empty-state TextView)
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
+
+    <!-- ======================================================
+         Toolbar
+         Using androidx.appcompat.widget.Toolbar so it renders
+         correctly on API 14 via AppCompat theming.
+         ====================================================== -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:title="@string/app_name"
+        app:titleTextColor="@android:color/white" />
+
+    <!-- ======================================================
+         Search Bar
+         Plain EditText inside a card-like background panel.
+         ====================================================== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorSearchBackground"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:elevation="2dp">
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/search_hint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textSize="15sp"
+            android:background="@drawable/bg_search_field"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:drawableLeft="@drawable/ic_search"
+            android:drawablePadding="8dp"
+            android:imeOptions="actionSearch"
+            android:contentDescription="@string/search_hint" />
+
+    </LinearLayout>
+
+    <!-- ======================================================
+         Content area: RecyclerView + overlay views
+         ====================================================== -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- App list -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="8dp"
+            android:scrollbars="vertical"
+            android:visibility="gone" />
+
+        <!-- Loading spinner — visible while AsyncTask runs -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="visible" />
+
+        <!-- Empty state — shown when list is empty after filtering -->
+        <TextView
+            android:id="@+id/tvEmpty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/no_apps_found"
+            android:textSize="16sp"
+            android:textColor="@color/colorTextSecondary"
+            android:gravity="center"
+            android:padding="24dp"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</LinearLayout>

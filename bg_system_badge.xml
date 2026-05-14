@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- bg_system_badge.xml — pill-shaped badge for the "SYSTEM" label -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/colorSystemBadge" />
+    <corners android:radius="20dp" />
+</shape>

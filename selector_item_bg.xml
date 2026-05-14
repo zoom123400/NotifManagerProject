@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- selector_item_bg.xml — ripple/press feedback for list rows (API 14 compatible) -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <color android:color="@color/colorItemBackgroundPressed" />
+    </item>
+    <item android:state_focused="true">
+        <color android:color="@color/colorItemBackgroundPressed" />
+    </item>
+    <item>
+        <color android:color="@color/colorItemBackground" />
+    </item>
+</selector>
